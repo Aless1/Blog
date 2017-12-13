@@ -1,17 +1,18 @@
 function ajax(options) {
-    options = option || {};
+    options = options || {};
     options.type = (options.type || "GET").toUpperCase();
     options.dataType = options.dataType || "json";
     var params = formatParams(options.data);
-    
+
+    var xhr;
     if (window.XMLHttpRequest) {
-        var xhr = new XMLHttpRequest();
+        xhr = new XMLHttpRequest();
     } else {
-        var = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
     xhr.onreadystatechange = function() {
-        if(xhr.readyState == 4) {
+        if(4 == xhr.readyState) {
             var status = xhr.status;
             if(status >=200 && status <= 300) {
                 options.success && options.success(xhr.responseText, xhr.responseXML)
@@ -21,17 +22,17 @@ function ajax(options) {
         }
     };
 
-    if(options.type == "GET") {
+    if("GET" == options.type) {
         xhr.open("GET", options.url + "?" + params, true);
         xhr.send();
-    } else if(options == "POST") {
+    } else if("POST" == options.type) {
         xhr.open("POST", options.url, true);
-        xhr.setRequestHeader("Content-Type". "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(params);
     }
 }
 
-function fromatParams(data) {
+function formatParams(data) {
     var arr = [];
     for(var name in data) {
         arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));

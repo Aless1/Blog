@@ -1,0 +1,4 @@
+[
+    { "url": "/hello", "view": "/Hello/show" },
+    { "url": "/show", "view": "/Hello/show" }
+]

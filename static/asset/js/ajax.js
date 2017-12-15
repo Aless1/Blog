@@ -1,8 +1,21 @@
-function ajax(options) {
+var Tools = Tools || {};
+/**
+ * {
+        type: "GET",
+        url: "/hello"
+        data: {
+            word: "hello world!!!"   
+        },
+        success: function(data) {
+           alert(data);
+        }
+ * }
+ */
+Tools.Ajax = function(options) {
     options = options || {};
     options.type = (options.type || "GET").toUpperCase();
     options.dataType = options.dataType || "json";
-    var params = formatParams(options.data);
+    var params = Tools.Ajax.formatParams(options.data);
 
     var xhr;
     if (window.XMLHttpRequest) {
@@ -32,7 +45,7 @@ function ajax(options) {
     }
 }
 
-function formatParams(data) {
+Tools.Ajax.formatParams = function(data) {
     var arr = [];
     for(var name in data) {
         arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));

@@ -9,7 +9,7 @@ class HttpRequest {
 
     initParams(request) {
         request.postParams = request.postParams || {};
-        request.params = Util.objConcat(request.getParams, request.postParams);
+        request.params = Util.ExtendDeep({}, request.getParams, request.postParams);
     }
 
     getParam(key) {

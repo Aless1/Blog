@@ -1,15 +1,11 @@
 var Tools = Tools || {};
+
 /**
- * {
-        type: "GET",
-        url: "/hello"
-        data: {
-            word: "hello world!!!"   
-        },
-        success: function(data) {
-           alert(data);
-        }
- * }
+ * type    请求类型 get／post
+ * url     请求url
+ * data    请求数据
+ * success 成功回调
+ * fail    失败回调
  */
 Tools.Ajax = function(options) {
     options = options || {};

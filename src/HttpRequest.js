@@ -4,6 +4,7 @@ class HttpRequest {
     constructor(req) {
         this.initParams(req);
         req.getParam = this.getParam;
+        req.getClientIP = this.getClientIP;
         return req;
     }
 
@@ -23,6 +24,13 @@ class HttpRequest {
         }
 
         return val;
+    }
+
+    getClientIP() {
+        return this.headers['x-forwarded-for'] ||
+        this.connection.remoteAddress ||
+        this.socket.remoteAddress ||
+        this.connection.socket.remoteAddress;
     }
 }
 

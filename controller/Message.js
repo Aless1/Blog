@@ -1,29 +1,56 @@
 const Db = require('../src/DbHelper');
 
+// Message: time local name ip agent content
 class Message {
     send(request, response) {
-        let msg = request.getParam('msg');
-        let postion = request.getParam('postion');
-        let one = {msg: msg, postion: postion};
+        let content = request.getParam('content');
+        let local = request.getParam('local');
+        let name = request.getParam('name');
+        let time = Date.now();
+        let ip = requesihw.getClientIP();
+        let agent = request.headers['user-agent'];
+
+        let one = { time: time, local: local, name: name, ip: ip, agent: agent, content: content };
         Db.Collection('message').insert(one, function(err, result) {
             if(err) {
                 console.log(err);
+                response.write(err);
+                response.end();
                 return;
             }
 
-            response.write(JSON.stringify(result));
+            response.write('ok');
             response.end();
         });
     }
     
     get(request, response) {
+        let local = request.getParam('local');
         let page = request.getParam('page') || 1;
-        Db.Collection('message').findAll(function(err, result) {
+        let pageSize = request.getParam('pageSize') || 10;
+        
+        let coll = Db.Collection('message');
+        let count = coll.find({local: local}).count();
+        let pageCount = Math.ceil(count / pageSize);
+
+        if(pageCount < page) {
+            response.write(JSON.stringify([]));
+            response.end();
+            return;
+        }
+        
+        let start = page * pageSize - pageSize;
+        let end = page * pageSize;
+        console.log(start + ' ' + end);
+
+        Db.Collection('message').find({local: local}).sort({time: 1}).skip(start).limit(end).toArray(function(err, result) {
             if(err) {
                 console.log(err);
+                response.write(err);
+                response.end();
                 return;
             }
-            response.write(result);
+            response.write(JSON.stringify(result));
             response.end();
         });   
     }    

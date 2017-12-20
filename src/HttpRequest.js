@@ -13,7 +13,6 @@ class HttpRequest {
     }
 
     getParam(key) {
-        console.log(this.params);
         let val = this.params[key];
         if(Array.isArray(val)) {
             return val[0];

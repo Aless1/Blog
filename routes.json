@@ -1,6 +1,6 @@
 [
     { "url": "/hello", "view": "/Hello/show" },
     { "url": "/show", "view": "/Hello/show" },
-    { "url": "/sendmsg", "view": "/Message/send"},
-    { "url": "/showmsg", "view": "/Message/get"}
+    { "url": "/sendmsg", "view": "/Tweet/send"},
+    { "url": "/showmsg", "view": "/Tweet/get"}
 ]

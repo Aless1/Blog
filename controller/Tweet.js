@@ -45,7 +45,7 @@ class Tweet {
                     response.write(err);
                     response.end();
                 }
-                res->comment = result;
+                res['comment']= result;
                 response.write(JSON.stringify(res));
                 response.end();
             });

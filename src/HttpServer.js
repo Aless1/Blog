@@ -7,12 +7,12 @@ const db = require('./DbHelper');
 const HttpHandler = require('./HttpHandler')
 
 class HttpServer {
-    constructor(host, port) {
+    constructor(host, port, routes) {
         this.host = host;
         this.port = port;
         this._http = null;
         this._routes = null;
-        this.initRoutes();
+        this.initRoutes(routes);
     }
     
     listen() {
@@ -29,8 +29,8 @@ class HttpServer {
         console.log(err);
     }
     
-    initRoutes() {
-        let data = fs.readFileSync('routes.json');
+    initRoutes(file) {
+        let data = fs.readFileSync(file);
         this._routes = JSON.parse(data);
         this._routes.forEach(function (route, index) {
             let view = route.view;

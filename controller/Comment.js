@@ -1,7 +1,7 @@
 const Db = require('../src/DbHelper');
 
-// Message: time local name ip agent content
-class Message {
+// comment: time local name ip agent content
+class Comment {
     send(request, response) {
         let content = request.getParam('content');
         let local = request.getParam('local');
@@ -11,7 +11,7 @@ class Message {
         let agent = request.headers['user-agent'];
 
         let one = { time: time, local: local, name: name, ip: ip, agent: agent, content: content };
-        Db.Collection('message').insert(one, function(err, result) {
+        Db.Collection('comment').insert(one, function(err, result) {
             if(err) {
                 console.log(err);
                 response.write(err);
@@ -29,7 +29,7 @@ class Message {
         let page = request.getParam('page') || 1;
         let pageSize = request.getParam('pageSize') || 10;
         
-        let coll = Db.Collection('message');
+        let coll = Db.Collection('comment');
         let count = coll.find({local: local}).count();
         let pageCount = Math.ceil(count / pageSize);
 
@@ -43,7 +43,7 @@ class Message {
         let end = page * pageSize;
         console.log(start + ' ' + end);
 
-        Db.Collection('message').find({local: local}).sort({time: 1}).skip(start).limit(end).toArray(function(err, result) {
+        coll.find({local: local}).sort({time: 1}).skip(start).limit(end).toArray(function(err, result) {
             if(err) {
                 console.log(err);
                 response.write(err);
@@ -56,4 +56,4 @@ class Message {
     }    
 }
 
-module.exports = Message;
+module.exports = Comment;

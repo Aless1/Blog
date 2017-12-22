@@ -47,3 +47,4 @@ var scriptLoader = new ScriptLoader(function() {
 scriptLoader.get("/asset/js/ajax.js");
 // scriptLoader.get("/asset/js/fps.js");
 scriptLoader.get("/asset/js/tools.js");
+scriptLoader.get("/asset/js/ws.js");

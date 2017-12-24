@@ -1,8 +1,17 @@
 var Tools = Tools || {};
 
 Tools.LoadContent = function(page) {
+
     var frameBasePath = "/frame/"
     var content = document.getElementById("content");
+
+    var csspath = frameBasePath + page + "/" + page + ".css";
+    var head = document.getElementsByTagName('head')[0];
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.href = csspath;
+    head.appendChild(style);
 
     Tools.Ajax({
         type: "GET",

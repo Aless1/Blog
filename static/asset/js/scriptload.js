@@ -18,6 +18,10 @@ ScriptLoader.prototype.flush = function() {
 }
 
 ScriptLoader.prototype.get = function(url) {
+    if(this.scripts[url]) {
+        return;
+    }
+
     var that = this;
     var script = document.createElement('script');
     script.type = "text/javascript";
@@ -47,4 +51,4 @@ var scriptLoader = new ScriptLoader(function() {
 scriptLoader.get("/asset/js/ajax.js");
 // scriptLoader.get("/asset/js/fps.js");
 scriptLoader.get("/asset/js/tools.js");
-scriptLoader.get("/asset/js/ws.js");
+// scriptLoader.get("/asset/js/ws.js");

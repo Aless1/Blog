@@ -1,1 +1,1 @@
-Tools.LoadContent("home")
+Tools.LoadContent("tweet")

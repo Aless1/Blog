@@ -1,0 +1,22 @@
+.panel {
+    border: 3px solid yellowgreen;
+    border-radius:.5em;
+
+    /*color: white;*/
+
+    width: 90%;
+    margin: 30px;
+}
+
+.panel-head {
+    /*border: 1px solid yellowgreen;*/
+    background: yellowgreen;
+    /*background:linear-gradient(-150deg,transparent .5em, yellowgreen  0);*/
+    font-size: 150%;
+
+    text-align: center;
+}
+
+.panel-body {
+
+}

@@ -1,23 +1,30 @@
 var Tools = Tools || {};
 
+Tools.frameBasePath = '/frame/';
+Tools.curPage;
 Tools.LoadContent = function(page) {
-
-    var frameBasePath = "/frame/"
-    var content = document.getElementById("content");
-
-    var csspath = frameBasePath + page + "/" + page + ".css";
     var head = document.getElementsByTagName('head')[0];
+    var content = document.getElementById('content');
+    var pagePath = Tools.frameBasePath + page + '/';
+    if(Tools.curpage) {
+        var oldStyle = head.getElementByClassName('page-style')[0];
+        head.removeChild(oldStyle);   
+    }
+
     var style = document.createElement('link');
+    style.class = "page-style";
     style.rel = 'stylesheet';
     style.type = 'text/css';
-    style.href = csspath;
+    style.href = pagePath + page + ".css";
     head.appendChild(style);
+    Tools.curPath = page;
 
     Tools.Ajax({
         type: "GET",
-        url: frameBasePath + page + "/" + "content.html",
+        url: pagePath + 'content.html',
         success: function(data) {
            content.innerHTML = data;
+           scriptLoader.get(pagePath + page + '.js');
         }
     });
 }

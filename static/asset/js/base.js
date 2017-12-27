@@ -1,1 +1,1 @@
-Tools.LoadContent("tweet")
+Tools.LoadContent("example");

@@ -30,8 +30,7 @@ class HttpServer {
     }
     
     initRoutes(file) {
-        let data = fs.readFileSync(file);
-        this._routes = JSON.parse(data);
+        this._routes = require('../' + file);
         this._routes.forEach(function (route, index) {
             let view = route.view;
             let classfile = './controller' + path.dirname(view);

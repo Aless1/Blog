@@ -19,14 +19,9 @@ class DbHelper {
         });   
     }
     
-    Collection(name) {
+    col(name) {
         return this.conn.collection(name);
     }
-
-    insert() {}
-    find() {}
-    update() {}
-    remove() {}        
 }
 
 module.exports = new DbHelper(conn);

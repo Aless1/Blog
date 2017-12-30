@@ -51,7 +51,7 @@ program.command('start')
     .description('starting a httpserver process')
     .option('-h, --host <host>', 'http listening ip, default 0.0.0.0', '0.0.0.0')
     .option('-p, --port <port>', 'http listening port, default 8080', 8080)
-    .option('-r, --routes <routes>', 'http routes.json', 'routes.json')
+    .option('-r, --routes <routes>', 'http routes.json', 'routes.js')
     .action(startMaster);
 
 program.parse(process.argv); 

@@ -40,7 +40,15 @@ class HttpHandler {
     dynamicResponse(route, request, response) {
         request = new HttpRequest(request);
         // fifter 
-        route.view[route.method](request, response);
+        try {
+            route.view[route.method](request, response);
+        } catch(e) {
+            if(e) {
+                response.end(e.toString());
+            } else {
+                response.end("unknown err");
+            }
+        }
     }
 
     staticResponse(filepath, response) {

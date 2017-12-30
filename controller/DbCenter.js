@@ -33,7 +33,7 @@ class DbCenter {
         }
 
         let page = pageInfo['page'] || 1;
-        let pageSize = pageInfo['pageSize'] || 10;
+        let pageSize = pageInfo['page_size'] || 10;
         
         let count = col.find(query).count();
         let pageCount = Math.cell(count / pageSize);
@@ -52,6 +52,12 @@ class DbCenter {
                 dberror(err, response);
                 return;
             }
+            res = {
+                page_count: count,
+                page: page,
+                page_size: pageSize,
+                result: result
+            };
             response.end(JSON.stringify(result));
         });
     } 

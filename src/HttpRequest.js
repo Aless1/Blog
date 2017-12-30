@@ -18,11 +18,6 @@ class HttpRequest {
         if(Array.isArray(val)) {
             return val[0];
         }
-        
-        if(!val) {
-            val = '';
-        }
-
         return val;
     }
 

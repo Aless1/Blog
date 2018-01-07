@@ -12,11 +12,14 @@ class HttpRequest {
         request.postParams = request.postParams || {};
         request.params = Util.ExtendDeep({}, request.getParams, request.postParams);
     }
-
+    
     getParam(key) {
         let val = this.params[key];
         if(Array.isArray(val)) {
             return val[0];
+        }
+        if('sting' == Util.type(val)) {
+            val = Util.html2Escape(val);
         }
         return val;
     }

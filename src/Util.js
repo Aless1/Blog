@@ -119,4 +119,10 @@ Util.ExtendDeep = function() {
     return target;
 };
 
+Util.html2Escape = function html2Escape(str) {
+    return str.replace(/[<>&"]/g, function(c) {
+        return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
+    });
+}
+
 module.exports = Util;

@@ -4,7 +4,7 @@ Tools.frameBasePath = '/frame/';
 Tools.curPage;
 Tools.LoadContent = function(page) {
     var head = document.getElementsByTagName('head')[0];
-    var content = document.getElementById('content');
+    var content = document.getElementById('container');
     var pagePath = Tools.frameBasePath + page + '/';
     if(Tools.curpage) {
         var oldStyle = head.getElementByClassName('page-style')[0];

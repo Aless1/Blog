@@ -66,7 +66,7 @@ function evanyou(canvas) {
             y: height * 0.7 - f           
         }];
 
-        var rgbIter = RGBGenerator(.3,.3,.3,0,2,4);
+        var rgbIter = RGBGenerator(.3,.3,.3,0,2,4, 230, 25);
         while(seed[0].x < width) {
             var point = genNewPoint(seed);
             paint(ctx, rgbIter.next().value, [seed[0], seed[1], point]);

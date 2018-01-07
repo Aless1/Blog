@@ -3,37 +3,42 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Index</title>
-
+    <title>主页</title>
+    <!-- base stylesheet link-->
     <link href="asset/css/style.css" rel="stylesheet">
     <link href="asset/css/weather.css" rel="stylesheet">
 </head>
 <body>
-    <nav><ul>
+    <header><ul>
         <li class="active">主页</li>
         <li>文章</li>
         <li>每日动态</li>
-    </ul></nav>
+    </ul></header>
 
-    <div class="sidebar"><ul>
-        <li>首页</li>
-        <li>归档</li>
-        <li>标签</li>
-        <li>搜索</li>
-    </ul>
+    <div class="sidebar">
+        <ul>
+            <li>首页</li>
+            <li>归档</li>
+            <li>标签</li>
+            <li>搜索</li>
+        </ul>
+
         <div class="starry-container">
             <div class="starry"></div>
         </div>
+
     </div>
 
-    <div id="content"></div>
+    <div id="main">
+        <div id="container"></div>
 
-    <footer>
-        © <a href="/." rel="nofollow">alless1</a> |
-        <a target="_blank"> 皖ICP备********号</a>
-        | Powered by framework<br>
-    </footer>
-
+        <footer>
+            © <a href="/." rel="nofollow">alless1</a> |
+            <a target="_blank"> 皖ICP备********号</a>
+            | Powered by framework<br>
+        </footer>
+    </div>
+    <!-- base javascript-->
     <script src="asset/js/scriptload.js"></script>
 </body>
 </html>

@@ -1,3 +1,3 @@
-var canvas = document.getElementById('canvas');
-evanyou(canvas);
+//var canvas = document.getElementById('canvas');
+//evanyou(canvas);
 

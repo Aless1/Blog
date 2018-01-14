@@ -6,13 +6,13 @@
 }
 
 body {
-    background: url("https://image.xiaomo.info/background/bg-2.jpg?version=1515336747.394") 0% 0% / cover fixed;
 }
 
 header {
-    background: rgba(0, 0, 255, .8);
+    background-color: rgba(102, 204, 102, .8);
     text-align: center;
     width: auto;
+    height: 80px;
 }
 
 header > ul > li {
@@ -20,7 +20,7 @@ header > ul > li {
     display: inline-block;
     padding: 15px 20px;
 
-    font-size: 250%;
+    font-size: 150%;
     font-weight: 500;
     color: #cdddeb;
     cursor:pointer;
@@ -53,27 +53,78 @@ header > ul > .active:after {
     position: fixed;
     width: 350px;
     height: 100%;
-    padding: 20px 0;
+}
+
+.sidebar > .overlay-up {
+    position: absolute;
+    height: 180px;
+    width: 100%;
+
+    background-color: rgba(102, 204, 102, .8);
+}
+
+.sidebar > .overlay-down {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+
+    background-color: rgba(102, 204, 102, .8);
+}
+
+.sidebar .icon {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: #88acdb;
+    text-align: center;
+}
+
+.sidebar .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar .author {
+    margin: 13px 0;
+    font-size: 32px;
+}
+
+.sidebar .subtitle {
+    margin: 13px 0;
+    line-height: 1.75;
 }
 
 
 /* Sidebar navigation */
-.sidebar > ul > li {
+.sidebar > .intrude-less {
+    width: 76%;
+    margin: 112px auto 0;
+    text-align: center;
+}
+
+.sidebar > .intrude-less > ul > li {
     position: relative;
     display: block;
     padding: 10px 20px;
     cursor:pointer;
 }
 
-.sidebar > ul > .active,
-.sidebar > ul > li:hover,
-.sidebar > ul > li:focus {
-    background: rgba(0, 0, 255, .8);
+.sidebar > .intrude-less > ul > .active,
+.sidebar > .intrude-less > ul > li:hover,
+.sidebar > .intrude-less > ul > li:focus {
+    background-color: rgb(102, 204, 102);
     color: #fff;
 }
 
+
+
 #main {
-    background: rgba(255, 255, 255, .6);
+    background-color: rgba(102, 204, 102, .8);
     position: absolute;
     left: 350px;
     right: 0;
@@ -81,22 +132,19 @@ header > ul > .active:after {
     min-height: 100%;
 }
 
-#container . {
+#body-wrap {
     background: rgba(255, 255, 255, .8);
+    padding: auto 20px;
+
+    border-left: 0px solid #e2e4da;
+    border-top-left-radius: 100px;
 }
 
 /*
  * Footer docs
  */
-footer{
-    background: rgba(0, 0, 0, .8);
-    padding-top:50px;
-    padding-bottom:50px;
-    margin-top:100px;
-    text-align:center;
-    color:#99979c;
+footer {
+    height: 100px;
+    text-align: center;
 }
 
-footer a  {
-    color:#fff;
-}

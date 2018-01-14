@@ -6,39 +6,90 @@
     <title>主页</title>
     <!-- base stylesheet link-->
     <link href="asset/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/breadcrumb.css" media="screen" type="text/css" />
     <link href="asset/css/weather.css" rel="stylesheet">
 </head>
 <body>
-    <header><ul>
-        <li class="active">主页</li>
-        <li>文章</li>
-        <li>每日动态</li>
-    </ul></header>
 
     <div class="sidebar">
-        <ul>
-            <li>首页</li>
-            <li>归档</li>
-            <li>标签</li>
-            <li>搜索</li>
-        </ul>
+        <div class="overlay-up"></div>
+        <div class="intrude-less">
+            <div class="icon">
+                <img src="http://moxfive.xyz/resources/Mihawk.png" class="animated zoomIn">
+            </div>
+            <!--<div class="starry-container">-->
+                <!--<div class="starry"></div>-->
+            <!--</div>-->
 
-        <div class="starry-container">
-            <div class="starry"></div>
+            <hgroup>
+                <h1 class="author">Alless1</h1>
+                <p class="subtitle">say something over!!!</p>
+            </hgroup>
+
+            <ul>
+                <li>首页</li>
+                <li>归档</li>
+                <li>标签</li>
+                <li>搜索</li>
+            </ul>
         </div>
-
+        <div class="overlay-down"></div>
     </div>
 
     <div id="main">
-        <div id="container"></div>
+        <header><ul>
+            <li class="active">主页</li>
+            <li>文章</li>
+            <li>每日动态</li>
+        </ul></header>
+
+        <div id="body-wrap">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">
+                        <span class="icon icon-file"></span>
+                        <span class="text">file</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-folder-open"></span>
+                        <span class="text">folder</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-code"></span>
+                        <span class="text">CSS 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-beaker"></span>
+                        <span class="text">Lab</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-home"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="container"></div>
+
+        </div>
 
         <footer>
             © <a href="/." rel="nofollow">alless1</a> |
             <a target="_blank"> 皖ICP备********号</a>
             | Powered by framework<br>
         </footer>
+
     </div>
     <!-- base javascript-->
     <script src="asset/js/scriptload.js"></script>
 </body>
 </html>
+
+

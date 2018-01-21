@@ -36,7 +36,7 @@ class DbCenter {
         let pageSize = pageInfo['page_size'] || 10;
         
         let count = col.find(query).count();
-        let pageCount = Math.cell(count / pageSize);
+        let pageCount = Math.ceil(count / pageSize);
         
         if(pageCount < page) {
              response.end(JSON.stringify([]));
@@ -49,7 +49,7 @@ class DbCenter {
         
         col.find(query).sort(sort).skip(start).limit(end).toArray(function(err, result) {
             if(err) {
-                dberror(err, response);
+                DbCenter.dberror(err, response);
                 return;
             }
             res = {
@@ -93,8 +93,9 @@ class DbCenter {
         });
     }
 
-    dberror(err, response) {
-        response.end(err);
+    static dberror(err, response) {
+        //response.end(JSON.toString(err));
+        console.log(err);
     }
 }
 

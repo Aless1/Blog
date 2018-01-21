@@ -18,7 +18,7 @@ class HttpRequest {
         if(Array.isArray(val)) {
             return val[0];
         }
-        if('sting' == Util.type(val)) {
+        if('sting' == Util.Type(val)) {
             val = Util.html2Escape(val);
         }
         return val;

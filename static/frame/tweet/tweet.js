@@ -6,7 +6,7 @@ function render(data) {
 
 function query(page, pageSize) {
     params = {
-        query: {}
+        query: {},
         page_info: {
             page: page,
             page_size: pageSize,

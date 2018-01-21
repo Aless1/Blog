@@ -2,14 +2,31 @@
     padding: 0;
     margin: 0 auto;
     font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-
 }
 
 body {
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+
+::selection {
+    background: rgba(147,181,224,0.6);
+    color: #fff;
+}
+
 header {
-    background-color: rgba(102, 204, 102, .8);
     text-align: center;
     width: auto;
     height: 80px;
@@ -22,16 +39,13 @@ header > ul > li {
 
     font-size: 150%;
     font-weight: 500;
-    color: #cdddeb;
+    color: #fff;
+
     cursor:pointer;
 }
 
-header > ul > li:hover,
-header > ul > li:focus {
-    color: #fff;
-}
-
-header > ul > .active:after {
+header > ul > li:hover:after,
+header > ul > li:focus:after {
     content: "";
 
     position: absolute;
@@ -121,15 +135,12 @@ header > ul > .active:after {
     color: #fff;
 }
 
-
-
 #main {
     background-color: rgba(102, 204, 102, .8);
     position: absolute;
     left: 350px;
     right: 0;
     width: auto;
-    min-height: 100%;
 }
 
 #body-wrap {
@@ -138,13 +149,16 @@ header > ul > .active:after {
 
     border-left: 0px solid #e2e4da;
     border-top-left-radius: 100px;
+
+    min-height: 1000px;
 }
+
 
 /*
  * Footer docs
  */
 footer {
     height: 100px;
+    line-height: 100px;
     text-align: center;
 }
-

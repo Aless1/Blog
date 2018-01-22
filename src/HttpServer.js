@@ -30,7 +30,9 @@ class HttpServer {
     }
     
     initRoutes(file) {
-        this._routes = require('../' + file);
+        let conf = require('../' + file);
+        this._static_base = conf['static_base'];
+        this._routes = conf['routes'];
         this._routes.forEach(function (route, index) {
             let view = route.view;
             let classfile = './controller' + path.dirname(view);

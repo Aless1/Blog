@@ -3,9 +3,9 @@ const Db = require('../src/DbHelper');
 class DbCenter {
     save(request, response) {
         let col = Db.col(request.getParam('col'));
-        let params = JSON.parse(request.getParam('params'));
+        let fields = JSON.parse(request.getParam('params'));
 
-        col.save(params['fields'], function(err, result) {
+        col.save(fields, function(err, result) {
             if(err) {
                 dberror(err, response);
                 return;
@@ -35,30 +35,37 @@ class DbCenter {
         let page = pageInfo['page'] || 1;
         let pageSize = pageInfo['page_size'] || 10;
         
-        let count = col.find(query).count();
-        let pageCount = Math.ceil(count / pageSize);
+        let count = col.find(query).count(function(err, count) {
+            let pageCount = Math.ceil(count / pageSize);
         
-        if(pageCount < page) {
-             response.end(JSON.stringify([]));
-             return;
-        }
-        
-        let sort = pageInfo['sort']; 
-        let start = page * pageSize - pageSize;
-        let end = page * pageSize;
-        
-        col.find(query).sort(sort).skip(start).limit(end).toArray(function(err, result) {
-            if(err) {
-                DbCenter.dberror(err, response);
+            if(pageCount < page) {
+                let res = {
+                    page_count: count,
+                    page: page,
+                    page_size: pageSize,
+                    result: []
+                };
+                response.end(JSON.stringify(res));
                 return;
             }
-            res = {
-                page_count: count,
-                page: page,
-                page_size: pageSize,
-                result: result
-            };
-            response.end(JSON.stringify(result));
+        
+            let sort = pageInfo['sort']; 
+            let start = page * pageSize - pageSize;
+            let end = page * pageSize;
+        
+            col.find(query).sort(sort).skip(start).limit(end).toArray(function(err, result) {
+                if(err) {
+                    DbCenter.dberror(err, response);
+                    return;
+                }
+                let res = {
+                    page_count: count,
+                    page: page,
+                    page_size: pageSize,
+                    result: result
+                };
+                response.end(JSON.stringify(res));
+            });
         });
     } 
 

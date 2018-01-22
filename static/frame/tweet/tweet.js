@@ -1,16 +1,16 @@
 var pageSize = 10;
 
 function render(data) {
-    
+    alert(data);   
 }
 
 function query(page, pageSize) {
-    params = {
+    var params = {
         query: {},
         page_info: {
             page: page,
             page_size: pageSize,
-            sort: 'tick'
+            sort: {tick : -1}
         }
     };
     var data = JSON.stringify(params);

@@ -32,7 +32,7 @@ class HttpHandler {
             }
             this.dynamicResponse(route, request, response);
         } else {
-            let filepath = './static' + req.pathname;
+            let filepath = './' + this._server._static_base + req.pathname;
             this.staticResponse(filepath, response);
         }
     }

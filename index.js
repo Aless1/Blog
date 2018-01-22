@@ -8,7 +8,7 @@ const HttpServer = require('./src/HttpServer')
 class Master {
     constructor(options) {
         // processMonitor();
-        this._httpServer = new HttpServer(options.host, options.port, options.routes);
+        this._httpServer = new HttpServer(options.host, options.port, options.config);
     }
     
     start() {
@@ -51,7 +51,7 @@ program.command('start')
     .description('starting a httpserver process')
     .option('-h, --host <host>', 'http listening ip, default 0.0.0.0', '0.0.0.0')
     .option('-p, --port <port>', 'http listening port, default 8080', 8080)
-    .option('-r, --routes <routes>', 'http routes.json', 'routes.js')
+    .option('-c, --config <config>', 'http config.js', 'config.default.js')
     .action(startMaster);
 
 program.parse(process.argv); 
